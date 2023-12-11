@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<headers>
+        <h1>Find the Factorial, Average, and Sum of N</h1>
+    </headers>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N Factorial, Sum, and Average Calculator</title>
+  <style>
+    /* You can add some basic styling here if needed */
+  </style>
+</head>
+<body>
+  <label for="inputNumber">Enter a positive integer (n): </label>
+  <input type="number" id="inputNumber">
+  <button onclick="calculateResults()">Calculate</button>
+
+<a href="index.html">Go Home</a>
+
+  <script>
+    function calculateResults() {
+      // Get user input for n
+      let n = document.getElementById('inputNumber').value;
+
+      // Validate user input
+      if (isNaN(n) || n <= 0 || !Number.isInteger(Number(n))) {
+        alert("Please enter a valid positive integer.");
+      } else {
+        n = parseInt(n);
+
+        // Calculate nth factorial using while loop
+        let factorial = 1;
+        let i = 1;
+        while (i <= n) {
+          factorial *= i;
+          i++;
+        }
+
+        // Calculate sum of the first n numbers using do-while loop
+        let sum = 0;
+        let j = 1;
+        do {
+          sum += j;
+          j++;
+        } while (j <= n);
+
+        // Calculate average of the first n numbers using for loop
+        let total = 0;
+        for (let k = 1; k <= n; k++) {
+          total += k;
+        }
+        let average = total / n;
+
+        // Display results
+        alert(`Factorial of ${n}: ${factorial}\nSum of the first ${n} numbers: ${sum}\nAverage of the first ${n} numbers: ${average}`);
+      }
+    }
+  </script>
+</body>
+</html>
